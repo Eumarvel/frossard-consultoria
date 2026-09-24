@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frossard Consultoria | Gestão Estratégica & Inteligência Financeira</title>
+    <style>
+         :root {
+            --bg-dark: #0b0f19;
+            --card-bg: #111827;
+            --primary: #d97706;
+            --primary-hover: #b45309;
+            --text-light: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            background-color: #0b0f17;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            background-color: #0b0f17;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Container do Logo + Slogan */
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        /* Ícone 'F' estilizado */
+        
+        .logo-icon {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #c5a059;
+            /* Tom dourado */
+            line-height: 1;
+        }
+        /* Bloco de Texto */
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brand-name {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+        
+        .brand-sub {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #c5a059;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+        
+        .tagline {
+            font-size: 0.55rem;
+            letter-spacing: 1.5px;
+            color: #8a94a6;
+            text-transform: uppercase;
+        }
+        /* Menu de Navegação */
+        
+        .nav-menu a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: #c5a059;
+        }
+        
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-subtitle {
+            color: var(--primary);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-hero {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .btn-hero:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title span {
+            color: var(--primary);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .solutions {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .grid-solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        
+        .card-num {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .contact-section {
+            padding: 5rem 5%;
+            background-color: #080c14;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            border-radius: 4px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-icon">F</div>
+            <div class="logo-text">
+                <span class="brand-name">ROSSARD</span>
+                <span class="brand-sub">CONSULTORIA</span>
+                <span class="tagline">GESTÃO ESTRATÉGICA E INTELAGÊNCIA FINANCEIRA</span>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#solucoes">SOLUÇÕES</a>
+            <a href="#metodologia">METODOLOGIA</a>
+            <a href="#contato">CONTATO</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-subtitle">CONSULTORIA EXECUTIVA DE ALTO IMPACTO</div>
+        <h1>Excelência Estratégica & Governança Financeira</h1>
+        <p>Desenvolvemos soluções personalizadas em inteligência financeira, apuração de impostos e eficiência operacional para impulsionar a lucratividade do seu negócio.</p>
+        <a href="#contato" class="btn-hero">AGENDAR CONSULTA ESTRATÉGICA</a>
+    </section>
+
+    <!-- SEÇÃO DE SOLUÇÕES -->
+    <section id="solucoes" class="solutions">
+        <div class="section-title">
+            <span>ÁREAS DE ATUAÇÃO</span>
+            <h2>Soluções Corporativas</h2>
+        </div>
+
+        <div class="grid-solutions">
+            <div class="card">
+                <div class="card-num">01</div>
+                <h3>Balanço Patrimonial & DRE</h3>
+                <p>Estruturação de demonstrações financeiras rigorosas para acompanhamento da margem de contribuição, saúde operacional e real lucratividade.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">02</div>
+                <h3>Gestão de Fluxo de Caixa</h3>
+                <p>Modelagem avançada e controle rigoroso de entradas e saídas de liquidez para garantir alta previsibilidade financeira.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3>Cálculo de Impostos (MEI, ME e EPP)</h3>
+                <p>Apuração fiscal precisa e planejamento tributário customizado para Microempreendedores, Microempresas e Empresas de Pequeno Porte.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">04</div>
+                <h3>Imposto de Renda (IRPF / IRPJ)</h3>
+                <p>Elaboração e revisão da declaração de imposto de renda garantindo total conformidade legal e otimização fiscal.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">05</div>
+                <h3>Emissão de Notas Fiscais</h3>
+                <p>Organização e gerenciamento do processo de faturamento e emissão de NFs de serviços e produtos com agilidade.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">06</div>
+                <h3>Controle de Estoque & Inventário</h3>
+                <p>Gestão e auditoria de estoque para redução de perdas, melhoria do giro e integração com o capital de giro.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE CONTATO / FORMULÁRIO -->
+    <section id="contato" class="contact-section">
+        <div class="section-title">
+            <span>ATENDIMENTO EXCLUSIVO</span>
+            <h2>Iniciar Diálogo Estratégico</h2>
+        </div>
+
+        <div class="form-container">
+            <form id="contactForm" action="https://formspree.io/f/fmffrossard@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="nome">NOME COMPLETO *</label>
+                    <input type="text" id="nome" name="nome" placeholder="Insira seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-MAIL CORPORATIVO *</label>
+                    <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">TELEFONE / WHATSAPP *</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="porte">PORTE DA EMPRESA *</label>
+                    <select id="porte" name="porte" required>
+            <option value="" disabled selected>Selecione o perfil</option>
+            <option value="Pessoa Física (IRPF)">Pessoa Física (IRPF)</option>
+            <option value="MEI (Microempreendedor)">MEI</option>
+            <option value="Microempresa (ME)">Microempresa (ME)</option>
+            <option value="Empresa de Pequeno Porte (EPP)">Empresa de Pequeno Porte (EPP)</option>
+          </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="servico">SERVIÇO PRINCIPAL *</label>
+                    <select id="servico" name="servico" required>
+            <option value="" disabled selected>Selecione o serviço</option>
+            <option value="Balanço, DRE e Fluxo de Caixa">Balanço, DRE e Fluxo de Caixa</option>
+            <option value="Cálculo de Impostos (MEI/ME/EPP)">Cálculo de Impostos (MEI / ME / EPP)</option>
+            <option value="Declaração de Imposto de Renda">Declaração de Imposto de Renda</option>
+            <option value="Emissão de Notas Fiscais">Emissão de Notas Fiscais</option>
+            <option value="Controle de Estoque">Controle de Estoque</option>
+            <option value="Assessoria Financeira Completa">Assessoria Financeira Completa</option>
+          </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="assunto">ASSUNTO *</label>
+                    <input type="text" id="assunto" name="assunto" placeholder="Ex: Diagnóstico financeiro e impostos" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">MENSAGEM *</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente o momento da sua empresa" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">ENVIAR SOLICITAÇÃO</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Frossard Consultoria. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE ENVIO (WHATSAPP + E-MAIL) -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const porte = document.getElementById('porte').value;
+            const servico = document.getElementById('servico').value;
+            const assunto = document.getElementById('assunto').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Configuração do WhatsApp da Consultoria
+            const numeroWhatsapp = "5511999999999"; // INSIRA SEU NÚMERO COM DDD AQUI
+
+            const textoWhatsapp = `*NOVO CONTATO - FROSSARD CONSULTORIA*%0A%0A` +
+                `*Nome:* ${encodeURIComponent(nome)}%0A` +
+                `*E-mail:* ${encodeURIComponent(email)}%0A` +
+                `*Telefone:* ${encodeURIComponent(telefone)}%0A` +
+                `*Porte:* ${encodeURIComponent(porte)}%0A` +
+                `*Serviço:* ${encodeURIComponent(servico)}%0A` +
+                `*Assunto:* ${encodeURIComponent(assunto)}%0A%0A` +
+                `*Mensagem:* ${encodeURIComponent(mensagem)}`;
+
+            const urlWhatsapp = `https://wa.me/${numeroWhatsapp}?text=${textoWhatsapp}`;
+
+            // Abre o WhatsApp
+            window.open(urlWhatsapp, '_blank');
+
+            // Envia para o e-mail fmffrossard@gmail.com via Formspree
+            this.submit();
+        });
+    </script>
+</body>
+
+</html>

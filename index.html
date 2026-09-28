@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frossard Consultoria | Gestão Estratégica & Inteligência Financeira</title>
     <style>
-         :root {
+        :root {
             --bg-dark: #0b0f19;
             --card-bg: #111827;
             --primary: #d97706;
@@ -14,6 +14,7 @@
             --text-light: #f9fafb;
             --text-muted: #9ca3af;
             --border-color: #1f2937;
+            --gold: #c5a059;
         }
         
         * {
@@ -36,34 +37,23 @@
             padding: 1.5rem 4rem;
             background-color: #0b0f17;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 4rem;
-            background-color: #0b0f17;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        /* Container do Logo + Slogan */
         
         .logo-container {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        /* Ícone 'F' estilizado */
         
         .logo-icon {
             font-family: 'Playfair Display', 'Georgia', serif;
             font-size: 2.2rem;
             font-weight: bold;
-            color: #c5a059;
-            /* Tom dourado */
+            color: var(--gold);
             line-height: 1;
         }
-        /* Bloco de Texto */
         
         .logo-text {
             display: flex;
@@ -83,7 +73,7 @@
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2px;
-            color: #c5a059;
+            color: var(--gold);
             line-height: 1.1;
             margin-bottom: 4px;
         }
@@ -94,7 +84,6 @@
             color: #8a94a6;
             text-transform: uppercase;
         }
-        /* Menu de Navegação */
         
         .nav-menu a {
             color: #a0aec0;
@@ -107,31 +96,7 @@
         }
         
         .nav-menu a:hover {
-            color: #c5a059;
-        }
-        
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-light);
-        }
-        
-        .logo span {
-            color: var(--primary);
-        }
-        
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--primary);
+            color: var(--gold);
         }
         
         .hero {
@@ -194,24 +159,28 @@
             margin-top: 0.5rem;
         }
         
+        /* ========== CONTAINER QUERIES — Grid de Soluções ========== */
         .solutions {
             padding: 5rem 5%;
             max-width: 1200px;
             margin: 0 auto;
+            container-type: inline-size;
+            container-name: solutions;
         }
         
         .grid-solutions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
         }
         
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             transition: transform 0.3s, border-color 0.3s;
+            min-width: 0;
         }
         
         .card:hover {
@@ -227,8 +196,9 @@
         }
         
         .card h3 {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             margin-bottom: 0.8rem;
+            line-height: 1.3;
         }
         
         .card p {
@@ -236,6 +206,112 @@
             font-size: 0.95rem;
         }
         
+        @container solutions (min-width: 600px) {
+            .grid-solutions {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.75rem;
+            }
+            
+            .card h3 {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @container solutions (min-width: 900px) {
+            .grid-solutions {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+            
+            .card h3 {
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* ========== FAQ ========== */
+        .faq-section {
+            padding: 5rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+            container-type: inline-size;
+            container-name: faq;
+        }
+        
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        
+        .faq-question .icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.open .faq-question .icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .faq-item.open .faq-answer {
+            max-height: 320px;
+            padding: 0 1.5rem 1.25rem;
+        }
+        
+        @container faq (max-width: 500px) {
+            .faq-question {
+                font-size: 0.95rem;
+                padding: 1.1rem 1.2rem;
+            }
+            
+            .faq-item.open .faq-answer {
+                padding: 0 1.2rem 1.1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* ========== CONTATO ========== */
         .contact-section {
             padding: 5rem 5%;
             background-color: #080c14;
@@ -249,6 +325,8 @@
             padding: 2.5rem;
             border-radius: 8px;
             border: 1px solid var(--border-color);
+            container-type: inline-size;
+            container-name: form;
         }
         
         .form-group {
@@ -299,12 +377,133 @@
             background-color: var(--primary-hover);
         }
         
+        @container form (max-width: 400px) {
+            .form-container {
+                padding: 1.35rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1.15rem;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+        }
+        
         footer {
             text-align: center;
             padding: 2rem;
             color: var(--text-muted);
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
+        }
+        
+        /* ========== MEDIA QUERIES (header, hero) ========== */
+        @media (max-width: 1024px) {
+            .header {
+                padding: 1.25rem 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .solutions,
+            .faq-section,
+            .contact-section {
+                padding: 4rem 4%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.2rem 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem 0;
+            }
+            
+            .nav-menu a {
+                margin-left: 0;
+                margin-right: 1.25rem;
+                font-size: 0.75rem;
+            }
+            
+            .hero {
+                padding: 4rem 5% 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .solutions,
+            .faq-section,
+            .contact-section {
+                padding: 3.5rem 5%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.8rem;
+            }
+            
+            .brand-name {
+                font-size: 0.95rem;
+            }
+            
+            .brand-sub {
+                font-size: 0.65rem;
+            }
+            
+            .tagline {
+                font-size: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.65rem;
+            }
+            
+            .btn-hero {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                margin-bottom: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.4rem;
+            }
+            
+            .solutions,
+            .faq-section,
+            .contact-section {
+                padding: 2.5rem 4%;
+            }
         }
     </style>
 </head>
@@ -318,13 +517,13 @@
             <div class="logo-text">
                 <span class="brand-name">FROSSARD</span>
                 <span class="brand-sub">CONSULTORIA</span>
-                <span class="tagline">GESTÃO ESTRATÉGICA E INTELAGÊNCIA FINANCEIRA</span>
+                <span class="tagline">GESTÃO ESTRATÉGICA E INTELIGÊNCIA FINANCEIRA</span>
             </div>
         </div>
 
         <nav class="nav-menu">
             <a href="#solucoes">SOLUÇÕES</a>
-            <a href="#metodologia">METODOLOGIA</a>
+            <a href="#faq">FAQ</a>
             <a href="#contato">CONTATO</a>
         </nav>
     </header>
@@ -344,37 +543,118 @@
             <h2>Soluções Corporativas</h2>
         </div>
 
+        <div class="grid-solutions">
+            <div class="card">
+                <div class="card-num">01</div>
+                <h3>Gestão de Fluxo de Caixa</h3>
+                <p>Modelagem avançada e controle rigoroso de entradas e saídas de liquidez para garantir alta previsibilidade financeira.</p>
+            </div>
 
+         
 
-        <div class="card">
-            <div class="card-num">01</div>
-            <h3>Gestão de Fluxo de Caixa</h3>
-            <p>Modelagem avançada e controle rigoroso de entradas e saídas de liquidez para garantir alta previsibilidade financeira.</p>
+            <div class="card">
+                <div class="card-num">02</div>
+                <h3>Imposto de Renda (IRPF / IRPJ)</h3>
+                <p>Elaboração e revisão da declaração de imposto de renda garantindo total conformidade legal e otimização fiscal.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3>Emissão de Notas Fiscais</h3>
+                <p>Organização e gerenciamento do processo de faturamento e emissão de NFs de serviços e produtos com agilidade.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">04</div>
+                <h3>Controle de Estoque & Inventário</h3>
+                <p>Gestão e auditoria de estoque para redução de perdas, melhoria do giro e integração com o capital de giro.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">05</div>
+                <h3>Montagem Personalizada de Carteira de Investimentos</h3>
+                <p>Desenhamos uma carteira sob medida para você, considerando objetivos, tolerância a risco e horizonte de tempo. Combinamos ativos no Brasil e no exterior para construir uma estratégia sólida, balanceada e de longo prazo.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">06</div>
+                <h3>Investimentos no Brasil e no Exterior</h3>
+                <p>Ampliamos suas oportunidades com acesso a mercados nacionais e internacionais, além de soluções offshore para diversificação, blindagem patrimonial e planejamento sucessório global, sempre com independência e alinhamento aos seus objetivos.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-num">07</div>
+                <h3>Planejamento Financeiro</h3>
+                <p>Estruturamos um plano completo e personalizado para organizar sua vida financeira, definir objetivos de curto, médio e longo prazo e traçar o caminho mais eficiente para alcançá-los. Tudo com base em dados, disciplina e estratégias alinhadas ao seu perfil.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERGUNTAS FREQUENTES -->
+    <section id="faq" class="faq-section">
+        <div class="section-title">
+            <span>DÚVIDAS COMUNS</span>
+            <h2>Perguntas Frequentes</h2>
         </div>
 
-        <div class="card">
-            <div class="card-num">02</div>
-            <h3>Cálculo de Impostos (MEI, ME e EPP)</h3>
-            <p>Apuração fiscal precisa e planejamento tributário customizado para Microempreendedores, Microempresas e Empresas de Pequeno Porte.</p>
+        <div class="faq-item">
+            <button class="faq-question" type="button">
+                Para quem são indicados os serviços da Frossard Consultoria?
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Atendemos pessoas físicas (IRPF), MEIs, Microempresas (ME) e Empresas de Pequeno Porte (EPP), além de profissionais liberais e investidores que buscam organização financeira, otimização tributária e construção de patrimônio de longo prazo.
+            </div>
         </div>
 
-        <div class="card">
-            <div class="card-num">03</div>
-            <h3>Imposto de Renda (IRPF / IRPJ)</h3>
-            <p>Elaboração e revisão da declaração de imposto de renda garantindo total conformidade legal e otimização fiscal.</p>
+        <div class="faq-item">
+            <button class="faq-question" type="button">
+                Como funciona a montagem da carteira de investimentos?
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Realizamos um diagnóstico completo do seu perfil (objetivos, prazo e tolerância a risco). A partir disso, desenhamos uma carteira personalizada com ativos no Brasil e no exterior, de forma balanceada e alinhada à sua estratégia de longo prazo.
+            </div>
         </div>
 
-        <div class="card">
-            <div class="card-num">04</div>
-            <h3>Emissão de Notas Fiscais</h3>
-            <p>Organização e gerenciamento do processo de faturamento e emissão de NFs de serviços e produtos com agilidade.</p>
+        <div class="faq-item">
+            <button class="faq-question" type="button">
+                Vocês trabalham com investimentos no exterior e offshore?
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Sim. Oferecemos acesso a mercados internacionais e soluções offshore para diversificação, blindagem patrimonial e planejamento sucessório global, sempre com independência e foco nos seus objetivos.
+            </div>
         </div>
 
-        <div class="card">
-            <div class="card-num">05</div>
-            <h3>Controle de Estoque & Inventário</h3>
-            <p>Gestão e auditoria de estoque para redução de perdas, melhoria do giro e integração com o capital de giro.</p>
+        <div class="faq-item">
+            <button class="faq-question" type="button">
+                O planejamento financeiro inclui apenas investimentos?
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Não. O planejamento financeiro é completo: organiza a vida financeira, define objetivos de curto, médio e longo prazo e traça o caminho mais eficiente para alcançá-los, integrando fluxo de caixa, impostos, proteção e investimentos.
+            </div>
         </div>
+
+        <div class="faq-item">
+            <button class="faq-question" type="button">
+                Como faço para iniciar um atendimento?
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Preencha o formulário de contato abaixo ou fale conosco pelo WhatsApp. Agendamos uma conversa estratégica para entender sua necessidade e apresentar a melhor solução.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" type="button">
+                Os serviços de impostos e notas fiscais são para qual porte de empresa?
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Atendemos MEI, Microempresa (ME) e Empresa de Pequeno Porte (EPP), com apuração fiscal, planejamento tributário, declaração de IR e gestão de emissão de notas fiscais de forma precisa e em conformidade com a legislação.
+            </div>
         </div>
     </section>
 
@@ -405,25 +685,28 @@
                 <div class="form-group">
                     <label for="porte">PORTE DA EMPRESA *</label>
                     <select id="porte" name="porte" required>
-            <option value="" disabled selected>Selecione o perfil</option>
-            <option value="Pessoa Física (IRPF)">Pessoa Física (IRPF)</option>
-            <option value="MEI (Microempreendedor)">MEI</option>
-            <option value="Microempresa (ME)">Microempresa (ME)</option>
-            <option value="Empresa de Pequeno Porte (EPP)">Empresa de Pequeno Porte (EPP)</option>
-          </select>
+                        <option value="" disabled selected>Selecione o perfil</option>
+                        <option value="Pessoa Física (IRPF)">Pessoa Física (IRPF)</option>
+                        <option value="MEI (Microempreendedor)">MEI</option>
+                        <option value="Microempresa (ME)">Microempresa (ME)</option>
+                        <option value="Empresa de Pequeno Porte (EPP)">Empresa de Pequeno Porte (EPP)</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="servico">SERVIÇO PRINCIPAL *</label>
                     <select id="servico" name="servico" required>
-            <option value="" disabled selected>Selecione o serviço</option>
-           
-            <option value="Cálculo de Impostos (MEI/ME/EPP)">Cálculo de Impostos (MEI / ME / EPP)</option>
-            <option value="Declaração de Imposto de Renda">Declaração de Imposto de Renda</option>
-            <option value="Emissão de Notas Fiscais">Emissão de Notas Fiscais</option>
-            <option value="Controle de Estoque">Controle de Estoque</option>
-            <option value="Assessoria Financeira Completa">Assessoria Financeira Completa</option>
-          </select>
+                        <option value="" disabled selected>Selecione o serviço</option>
+                        <option value="Gestão de Fluxo de Caixa">Gestão de Fluxo de Caixa</option>
+                        <option value="Cálculo de Impostos (MEI/ME/EPP)">Cálculo de Impostos (MEI / ME / EPP)</option>
+                        <option value="Declaração de Imposto de Renda">Declaração de Imposto de Renda</option>
+                        <option value="Emissão de Notas Fiscais">Emissão de Notas Fiscais</option>
+                        <option value="Controle de Estoque">Controle de Estoque</option>
+                        <option value="Montagem de Carteira de Investimentos">Montagem de Carteira de Investimentos</option>
+                        <option value="Investimentos no Brasil e no Exterior">Investimentos no Brasil e no Exterior</option>
+                        <option value="Planejamento Financeiro">Planejamento Financeiro</option>
+                        <option value="Assessoria Financeira Completa">Assessoria Financeira Completa</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -446,8 +729,21 @@
         <p>&copy; 2026 Frossard Consultoria. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT DE ENVIO (WHATSAPP + E-MAIL) -->
+    <!-- SCRIPT -->
     <script>
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(function(el) {
+                    el.classList.remove('open');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -459,7 +755,6 @@
             const assunto = document.getElementById('assunto').value;
             const mensagem = document.getElementById('mensagem').value;
 
-            // Configuração do WhatsApp da Consultoria
             const numeroWhatsapp = "5511999999999"; // INSIRA SEU NÚMERO COM DDD AQUI
 
             const textoWhatsapp = `*NOVO CONTATO - FROSSARD CONSULTORIA*%0A%0A` +
@@ -473,10 +768,7 @@
 
             const urlWhatsapp = `https://wa.me/${numeroWhatsapp}?text=${textoWhatsapp}`;
 
-            // Abre o WhatsApp
             window.open(urlWhatsapp, '_blank');
-
-            // Envia para o e-mail fmffrossard@gmail.com via Formspree
             this.submit();
         });
     </script>
